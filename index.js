@@ -1,10 +1,17 @@
 const express = require('express');
+const path = require('path');
+// const bodyParser = require('body-parser')
+// var jsonParser = bodyParser.json()
+
 const app = express();
 const port = 8000;
 
 
 // use express router
 app.use('/',require('./routes'));
+app.set('views',path.join(__dirname,'views'));
+
+app.use(express.urlencoded());
 
 // set up the view engine
 app.set('view engine','ejs');
